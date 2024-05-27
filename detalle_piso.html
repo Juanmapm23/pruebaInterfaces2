@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Málaga Dream Home</title>
+
+    <!--Icono pestaña del navegador-->
+    <link rel="icon" type="image/png" href="./img/favicon2.png" alt="Icono de la pestaña del navegador">
+
+    <!-- All CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!--iconos bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <!--select del bootstrap-->
+
+    <link rel="stylesheet" href="css/piso.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand"> <span class="text-primary">Málaga</span>DreamHome</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarS"
+                aria-controls="navbarS" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarS">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="calculadora.html" class="nav-link">Calcula tu Hipoteca</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sobreNosotros.html" class="nav-link">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gestionaPropiedad.html" class="nav-link">Gestiona tu propiedad</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5 text-white">
+        <h1>Detalles del Piso</h1>
+        <div id="detallePisoContainer" class="row">
+            <!-- Aquí se llenará la información del piso -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" id="modalCarouselInner">
+                            <!-- Aquí se insertarán las imágenes del carrusel -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrusel e información del piso -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="carouselContainer" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselE" data-bs-slide-to="0" class="active" aria-current="true"
+                            aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselE" data-bs-slide-to="1" aria-current="true"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselE" data-bs-slide-to="2" aria-current="true"
+                            aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="3" aria-current="true"
+                            aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="4" aria-current="true"
+                            aria-label="Slide 5"></button>
+                            <button type="button" data-bs-target="#carouselE" data-bs-slide-to="5" aria-current="true"
+                            aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner" id="carouselInner">
+                        <!-- Aquí se insertarán las imágenes del carrusel -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselContainer" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior Imagen</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselContainer" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente Imagen</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4" id="detallePisoTexto">
+                <!-- Aquí se llenará la información textual del piso -->
+            </div>
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="col-md-12 p-0 pt-4 pb-4">
+        <p>
+            <h2 style="margin-left: 10px;">¿Quiere más información del inmueble? Contacte con nosotros</h2>
+         </p>
+            <form action="mailto:tu_correo@ejemplo.com" method="post" enctype="text/plain" class="bg-dark p-4 m-auto" novalidate>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label text-white">Nombre <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="nombre" maxlength="189819" required>
+                            <div class="invalid-feedback">Por favor, ingrese su nombre.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label text-white">Teléfono <span class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="telefono" pattern="\d{9}" maxlength="9" required>
+                            <div class="invalid-feedback">Por favor, ingrese un teléfono válido de 9 dígitos.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="correo" class="form-label text-white">Correo <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="correo" maxlength="320" required>
+                            <div class="invalid-feedback">Por favor, ingrese un correo electrónico válido.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="mensaje" class="form-label text-white">Mensaje <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+                            <div class="invalid-feedback">Por favor, ingrese su mensaje.</div>
+                        </div>
+                    </div>
+                    <button id="submit-btn" class="btn btn-primary btn-lg btn-block mt-3" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="help-icon" onclick="showHelpMessage()">
+        i
+    </div>
+
+    <script>
+        function obtenerParametroURL(nombre) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nombre);
+        }
+
+        // Obtener el ID del piso de la URL
+        const pisoId = obtenerParametroURL('pisoId');
+
+        // Obtener el objeto piso correspondiente al ID del localStorage
+        const pisoSeleccionado = JSON.parse(localStorage.getItem('pisos')).find(piso => piso.id === parseInt(pisoId));
+
+        // Rellenar la información del piso en el HTML
+        const detallePisoTexto = document.getElementById("detallePisoTexto");
+        var precio = pisoSeleccionado.operacion === "Alquiler" ? pisoSeleccionado.precio + "€ /mes" : pisoSeleccionado.precio + "€";
+        detallePisoTexto.innerHTML = `
+            <h2>${pisoSeleccionado.nombre}</h2>
+            <p>Precio: ${precio}</p>
+            <p>Descripción: ${pisoSeleccionado.descripcion}</p>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Municipio:</td>
+                        <td>${pisoSeleccionado.municipio}</td>
+                    </tr>
+                    <tr>
+                        <td>Distrito:</td>
+                        <td>${pisoSeleccionado.distrito}</td>
+                    </tr>
+                    <tr>
+                        <td>Calle:</td>
+                        <td>${pisoSeleccionado.calle}</td>
+                    </tr>
+                    <tr>
+                        <td>Nº Habitaciones:</td>
+                        <td>${pisoSeleccionado.numHabitaciones}</td>
+                    </tr>
+                    <tr>
+                        <td>Nº Baños:</td>
+                        <td>${pisoSeleccionado.numBanos}</td>
+                    </tr>
+                    <tr>
+                        <td>Inmueble:</td>
+                        <td>${pisoSeleccionado.tipo}</td>
+                    </tr>
+                    <tr>
+                        <td>Estado:</td>
+                        <td>${pisoSeleccionado.estado} estado</td>
+                    </tr>
+                    <tr>
+                        <td>Operación:</td>
+                        <td>${pisoSeleccionado.operacion == "Ambos" ? "Compra/Alquiler" : pisoSeleccionado.operacion}</td>
+                    </tr>
+                    <tr>
+                        <td>Superficie:</td>
+                        <td>${pisoSeleccionado.superficie} metros cuadrados</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+
+        document.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('form');
+    var submitBtn = document.getElementById('submit-btn');
+    var firstAttempt = true;
+
+    function validateField(field) {
+        if (!field.checkValidity()) {
+            field.classList.add('is-invalid');
+            return false;
+        } else {
+            field.classList.remove('is-invalid');
+            return true;
+        }
+    }
+
+    function validateForm() {
+        var isValid = true;
+
+        form.querySelectorAll('input, textarea').forEach(function(input) {
+            if (!validateField(input)) {
+                isValid = false;
+            }
+        });
+
+        submitBtn.disabled = !isValid;
+    }
+
+    form.querySelectorAll('input, textarea').forEach(function(input) {
+        input.addEventListener('input', function() {
+            if (!firstAttempt) {
+                validateField(input);
+                validateForm();
+            }
+        });
+    });
+
+    form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+            firstAttempt = false;
+            validateForm();
+        } else {
+            form.classList.add('was-validated');
+        }
+    }, false);
+});
+
+
+function showHelpMessage() {
+   
+    // Mostrar el mensaje de ayuda
+    alert("Todos los campos con el símbolo '*' son obligatorios");
+
+            // Crear un elemento de audio
+        var audioElement = document.createElement('audio');
+
+        // Establecer la ruta del archivo de audio
+        audioElement.setAttribute('src', 'sonidos/Sonido_ventana.mp3');
+
+        // Reproducir el sonido
+        audioElement.play();
+}
+
+
+
+        // Configurar el carrusel
+        const carouselInner = document.getElementById("carouselInner");
+        const modalCarouselInner = document.getElementById("modalCarouselInner");
+        const src = "img/Casas/Piso" + pisoId + "/";
+        const images = [
+            src + "1.jpg", src + "2.jpg", src + "3.jpg", src + "4.jpg", src + "5.jpg", src + "6.jpg"
+        ];
+
+        images.forEach((imageSrc, index) => {
+            const item = document.createElement("div");
+            item.classList.add("carousel-item");
+            if (index === 0) {
+                item.classList.add("active");
+            }
+            item.innerHTML = `<img src="${imageSrc}" class="d-block w-100" alt="Imagen del piso" data-bs-toggle="modal" data-bs-target="#imageModal" data-bs-slide-to="${index}">`;
+            carouselInner.appendChild(item);
+
+            const modalItem = document.createElement("div");
+            modalItem.classList.add("carousel-item");
+            if (index === 0) {
+                modalItem.classList.add("active");
+            }
+            modalItem.innerHTML = `<img src="${imageSrc}" class="d-block w-100" alt="Imagen del piso ${index + 1}">`;
+            modalCarouselInner.appendChild(modalItem);
+        });
+
+        // Evento para actualizar el modal al abrirlo
+        const imageModal = document.getElementById('imageModal');
+        imageModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const slideToIndex = button.getAttribute('data-bs-slide-to');
+            const modalCarousel = new bootstrap.Carousel(document.getElementById('modalCarousel'));
+            modalCarousel.to(slideToIndex);
+        });
+    </script>
+
+    <!---------------------------------------------------------------------------------->
+    <!--------------------------------FOOTER-------------------------------------------------->
+
+    <footer class="pie-pagina pie-pagina-dark bg-dark mt-5">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="img/logo_footer.png" alt="Logo Malaga DreamHome">
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <p class="mt-4 mb-5"><i class="bi bi-geo-fill"></i>Calle Blvr. Louis Pasteur,35 <br> <i
+                        class="bi bi-phone-fill"></i> 952 13 28 42 <br><i class="bi bi-envelope-fill"></i>
+                    malagadreamhome@gmail.es</p>
+            </div>
+
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="redes-social">
+                    <a href="https://www.twitter.com" target="_blank" class="bi bi-twitter" aria-label="twitter"></a>
+                    <a href="https://www.facebook.com" target="_blank" class="bi bi-facebook"aria-label="facebook"></a>
+                    <a href="https://www.instagram.com" target="_blank" class="bi bi-instagram" aria-label="instagram"></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="bi bi-linkedin" aria-label="linkedin"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grupo-2">
+            <small>
+                &copy;2024 <b>Malaga Dream Home</b> - Todos los derechos reservados -
+            </small>
+        </div>
+    </footer>
+
+    <!-- All Javascript -->
+    <!-- All Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
