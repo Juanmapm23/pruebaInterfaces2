@@ -37,16 +37,16 @@
             <div class="collapse navbar-collapse" id="navbarS">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active" aria-current="page">Inicio</a>
+                        <a href="#" class="nav-link active" aria-current="page" aria-label="Inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="calculadora.html" class="nav-link">Calcula tu hipoteca</a>
+                        <a href="calculadora.html" class="nav-link" aria-label="Calcula tu hipoteca">Calcula tu hipoteca</a>
                     </li>
                    <li class="nav-item">
-                        <a href="sobreNosotros.html" class="nav-link">Sobre Nosotros</a>
+                    <a href="sobreNosotros.html" class="nav-link" aria-label="Sobre Nosotros">Sobre Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a href="gestionaPropiedad.html" class="nav-link">Gestiona tu propiedad</a>
+                        <a href="gestionaPropiedad.html" class="nav-link" aria-label="Gestiona tu propiedad">Gestiona tu propiedad</a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +69,7 @@
 
         <div class="carousel-inner">
 
-            <div class="carousel-item active">
+            <div class="carousel-item active" aria-live="polite" aria-atomic="true">
                 <img src="img/FotosMalaga/malagaInicio.jpg" class="d-block w-100" alt="Imagen de la bahía de Málaga">
                 <div class="carousel-caption">
                     <h5>Bahía de Málaga</h5>
@@ -191,9 +191,11 @@
 </div>  
 
 <div id="totalPisos" class="container text-center mt-4">
-    <p class="text-white" tabindex="0" aria-label="Total de inmuebles mostrados:">Total de inmuebles mostrados: <span id="totalPisosCount">0</span></p>
+    <p class="text-white" tabindex="0" aria-live="polite">Total de inmuebles mostrados: <span id="totalPisosCount" aria-live="assertive">0</span></p>
 </div>
 
+<!-- Mensaje ARIA para lectores de pantalla -->
+<div id="ariaMessage" class="visually-hidden" role="alert" aria-live="assertive"></div>
 
 <script src="js/Piso.js"></script>
 
@@ -210,9 +212,6 @@
 
 <script src="Piso.js"></script>
 
-
-
-
  <!---------------------------------------------------------------------------------->
     <!--------------------------------FOOTER-------------------------------------------------->
 
@@ -221,33 +220,28 @@
             <div class="box">
                 <figure>
                     <a href="#">
-                        <img src="img/logo_footer.png" alt="Logo de Málaga Dream Home">
+                        <img src="img/logo_footer.png" alt="Logo en el que se ve una casa">
                     </a>
                 </figure>
             </div>
             <div class="box">
-                <p class="mt-4 mb-5"><i class="bi bi-geo-fill"></i>Calle Blvr. Louis Pasteur,35 <br> <i
-                        class="bi bi-phone-fill"></i> 952 13 28 42 <br><i class="bi bi-envelope-fill"></i>
-                    malagadreamhome@gmail.es</p>
+                <p class="mt-4 mb-5" tabindex="0"><i class="bi bi-geo-fill"></i> Calle Blvr. Louis Pasteur,35 <br> <i class="bi bi-phone-fill"></i> 952 13 28 42 <br> <i class="bi bi-envelope-fill"></i> malagadreamhome@gmail.es</p>
             </div>
-
             <div class="box">
-                <h2>SIGUENOS</h2>
+                <h2 tabindex="0">Síguenos</h2>
                 <div class="redes-social">
-                    <a href="https://www.twitter.com" target="_blank" class="bi bi-twitter" aria-label="twitter"></a>
-                    <a href="https://www.facebook.com" target="_blank" class="bi bi-facebook"aria-label="facebook"></a>
-                    <a href="https://www.instagram.com" target="_blank" class="bi bi-instagram" aria-label="instagram"></a>
-                    <a href="https://www.linkedin.com" target="_blank" class="bi bi-linkedin" aria-label="linkedin"></a>
+                    <a href="https://www.twitter.com" target="_blank" class="bi bi-twitter" aria-label="Twitter"></a>
+                    <a href="https://www.facebook.com" target="_blank" class="bi bi-facebook" aria-label="Facebook"></a>
+                    <a href="https://www.instagram.com" target="_blank" class="bi bi-instagram" aria-label="Instagram"></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="bi bi-linkedin" aria-label="LinkedIn"></a>
                 </div>
             </div>
         </div>
-
-        <div class="grupo-2">
-            <small>
-                &copy;2024 <b>Malaga Dream Home</b> - Todos los derechos reservados -
-            </small>
+        <div class="grupo-2" tabindex="0">
+            <small>&copy;2024 <b>Malaga Dream Home</b> - Todos los derechos reservados -</small>
         </div>
     </footer>
+
 
     <!---------------------------------------------------------------------------------->
     <!---------------------------------------------------------------------------------->
@@ -258,6 +252,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script>
+        const ariaMessage = document.getElementById('ariaMessage');
+
+        document.getElementById('btnAplicarFiltros').addEventListener('click', function() {
+            // Aquí puedes agregar tu lógica para aplicar los filtros
+
+            // Actualizar el mensaje ARIA
+            ariaMessage.textContent = 'Filtros aplicados';
+            // Forzar reanudar la lectura del mensaje por el lector de pantalla
+            ariaMessage.setAttribute('role', 'alert');
+            ariaMessage.removeAttribute('role');
+            ariaMessage.setAttribute('role', 'alert');
+        });
+
+        document.getElementById('btnEliminarFiltros').addEventListener('click', function() {
+            // Aquí puedes agregar tu lógica para eliminar los filtros
+
+            // Actualizar el mensaje ARIA
+            ariaMessage.textContent = 'Filtros eliminados';
+            // Forzar reanudar la lectura del mensaje por el lector de pantalla
+            ariaMessage.setAttribute('role', 'alert');
+            ariaMessage.removeAttribute('role');
+            ariaMessage.setAttribute('role', 'alert');
+        });
+    </script>
 </body>
 
 </html>
